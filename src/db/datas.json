@@ -49,27 +49,32 @@
     {
         "id" : 1,
         "name" : "fas fa-search",
-        "url" : "search"
+        "url" : "search",
+        "count" : 3
     },
     {
         "id" : 2,
         "name" : "fas fa-user",
-        "url" : "/user"
+        "url" : "/user",
+        "count" : 2
     },
     {
         "id" : 3,
         "name" : "fas fa-random",
-        "url" : "/compare"
+        "url" : "/compare",
+        "count" : 1
     },
     {
         "id" : 4,
         "name" : "far fa-heart",
-        "url" : "/wishlist"
+        "url" : "/wishlist",
+        "count" : 5
     },
     {
         "id" : 5,
         "name" : "fas fa-shopping-bag",
-        "url" : "/cart"
+        "url" : "/cart",
+        "count" : 3
     }
 ],
 "category" : [
