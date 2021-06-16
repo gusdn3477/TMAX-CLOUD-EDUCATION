@@ -1,6 +1,7 @@
 import Header from '../../layout/Header';
 import Footer from '../../layout/Footer';
 import React, { Fragment } from 'react';
+import Bread from '../../elements/ui/Bread';
 import WishTable from '../../elements/widgets/wishtable/WishTable';
 
 export default function Wishlist() {
@@ -8,6 +9,7 @@ export default function Wishlist() {
     return (
         <Fragment>
             <Header />
+                <Bread productName="Wishlist"/>
                 <WishTable />
             <div className="cart-main-area pt-90 pb-100">
                 <div className="container">

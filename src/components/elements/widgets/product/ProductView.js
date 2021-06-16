@@ -10,12 +10,13 @@ export default function ProductView({ categoryName }) {
     const [newData, setnewData] = useState([]);
 
     useEffect(() => {
-        fetch(`http://${process.IP}:${process.PORT}/product`)
+        fetch(`http://${process.IP}:${process.PORT}/product/`)
             .then(res => {
                 return res.json();
             })
             .then(data => {
                 setnewData(data);
+                console.log(data);
             })
             .catch(error => console.log(error));
     }, [process.IP, process.PORT]);
@@ -25,6 +26,41 @@ export default function ProductView({ categoryName }) {
             item => item.category.filter(single => single === categoryName)[0]
         )
         : newData;
+
+    const handleDelete = (id) => {
+        fetch(`http://${process.IP}:${process.PORT}/wish/${id}`, {
+            method : "DELETE"
+        }).then(
+            alert("삭제되었습니다.")
+        )
+    }
+
+    const handlePutCompareList = (id) => {
+
+        fetch(`http://${process.IP}:${process.PORT}/${id}`)
+        .then(res => {
+            return res.json();
+        })
+        .then(data => {
+            fetch(`http://${process.IP}:${process.PORT}/compare`,{
+                method : "POST",
+                headers : {
+                    "Content-Type" : "application/json"
+                },
+                body : JSON.stringify({
+                    id : data.id,
+                    name : data.name,
+                    price : data.price,
+                    discount : data.discount,
+                    shortDescription : data.shortDescription,
+                    rating : data.rating
+                })
+            })
+        }).then(
+            alert('success')
+        )
+
+    }
 
     const handlePutWishList = (id) => {
 
@@ -42,20 +78,11 @@ export default function ProductView({ categoryName }) {
                     id : data.id,
                     name : data.name,
                     image : data.image,
-                    price : data.price,
-                    discount : data.discount
+                    price : data.price
                 }),
             })
         }).then(
             alert("success")
-        )
-    }
-
-    const handleDelete = (id) => {
-        fetch(`http://${process.IP}:${process.PORT}/wish/${id}`, {
-            method : "DELETE"
-        }).then(
-            alert("삭제되었습니다.")
         )
     }
 
@@ -90,7 +117,7 @@ export default function ProductView({ categoryName }) {
                             <button disabled="" class="active">Out of Stock</button>
                         </div>
                         <div class="pro-same-action pro-quickview">
-                            <button className="" title={item.id} onClick={() => handleDelete(item.id)} value={item.id}>
+                            <button className="" title={item.id} onClick={() => handlePutCompareList(item.id)} value={item.id}>
                                 <i className="las la-eye"></i>
                             </button>
                         </div>
