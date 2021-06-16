@@ -82,14 +82,17 @@ export default function ProductView({ categoryName }) {
                     </div>
                     <div class="product-action">
                         <div class="pro-same-action pro-wishlist">
-                            <button value={item.id} onClick = {() => handlePutWishList(item.id)} ></button>
-                            {/*<button class="" title="Add to wishlist"><i class="las la-bookmark"></i></button>*/}
+                            <button value={item.id} onClick = {() => handlePutWishList(item.id)}>
+                            {/*<button class="" title="Add to wishlist">*/}
+                            <i class="las la-bookmark"></i></button>
                         </div>
                         <div class="pro-same-action pro-cart">
                             <button disabled="" class="active">Out of Stock</button>
                         </div>
                         <div class="pro-same-action pro-quickview">
-                            <button title="Quick View"><i class="las la-eye"></i></button>
+                            <button className="" title={item.id} onClick={() => handleDelete(item.id)} value={item.id}>
+                                <i className="las la-eye"></i>
+                            </button>
                         </div>
                     </div>
                 </div>

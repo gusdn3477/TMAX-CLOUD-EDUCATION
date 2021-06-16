@@ -1,11 +1,30 @@
 {
   "wish": [
     {
-      "id": 3,
-      "name": "",
-      "image": "",
-      "price": 0,
+      "id": "6",
+      "name": "Lorem ipsum jacket",
+      "image": [
+        "/assets/img/product/fashion/6.jpg",
+        "/assets/img/product/fashion/3.jpg",
+        "/assets/img/product/fashion/1.jpg",
+        "/assets/img/product/fashion/8.jpg",
+        "/assets/img/product/fashion/9.jpg"
+      ],
+      "price": 19.85,
       "discount": 0
+    },
+    {
+      "id": "3",
+      "name": "Lorem ipsum jacket",
+      "image": [
+        "/assets/img/product/fashion/3.jpg",
+        "/assets/img/product/fashion/1.jpg",
+        "/assets/img/product/fashion/6.jpg",
+        "/assets/img/product/fashion/8.jpg",
+        "/assets/img/product/fashion/9.jpg"
+      ],
+      "price": 17.45,
+      "discount": 40
     },
     {
       "id": "2",
@@ -31,19 +50,6 @@
         "/assets/img/product/fashion/9.jpg"
       ],
       "price": 15.5,
-      "discount": 0
-    },
-    {
-      "id": "6",
-      "name": "Lorem ipsum jacket",
-      "image": [
-        "/assets/img/product/fashion/6.jpg",
-        "/assets/img/product/fashion/3.jpg",
-        "/assets/img/product/fashion/1.jpg",
-        "/assets/img/product/fashion/8.jpg",
-        "/assets/img/product/fashion/9.jpg"
-      ],
-      "price": 19.85,
       "discount": 0
     }
   ],
@@ -95,7 +101,7 @@
     {
       "id": 1,
       "name": "fas fa-search",
-      "url": "search",
+      "url": "/search",
       "count": 3
     },
     {

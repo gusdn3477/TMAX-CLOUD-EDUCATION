@@ -19,7 +19,7 @@ export default function WishTable() {
 
     const wishTableList = wishDatas.map((item, index) => (
         <tr key = {index}>
-            <td className="product-thumbnail"><Link to={`/productdetail/${item.id}`}><img className="img-fluid" src= {item.img[0]} alt="" /></Link></td>
+            <td className="product-thumbnail"><Link to={`/productdetail/${item.id}`}><img className="img-fluid" src= {item.image[0]} alt="" /></Link></td>
             <td className="product-name text-center"><Link to={`/productdetail/${item.id}`}></Link></td>
             <td className="product-price-cart"><span className="amount old">$18.50</span><span className="amount">$15.72</span></td>
             <td className="product-wishlist-cart"><Link to={`/productdetail/${item.id}`}>Select Option</Link></td>
