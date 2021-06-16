@@ -12,21 +12,24 @@ import "./assets/css/animate.css";
 import "./assets/css/bootstrap.css";
 import "./assets/css/googlefont.css";
 import "./assets/icons8/css/line-awesome.min.css";
+import ToTop from "./utilites/ToTop.js";
 
 
 function App() {
 
   return (
     <BrowserRouter>
-      <Switch>
-        <Route exact path="/"><Home/></Route>
-        <Route exact path="/features"><Features/></Route>
-        <Route exact path="/productdetail/:id"><ProductDetail/></Route>
-        <Route exact path="/cart"><Cart/></Route>
-        <Route exact path="/compare"><Compare/></Route>
-        <Route exact path="/wishlist"><Wishlist/></Route>
-        {/*<Route exact path="/productdetail/:id"><Productdetail/></Route>*/}
-      </Switch>
+      <ToTop>
+        <Switch>
+          <Route exact path="/"><Home/></Route>
+          <Route exact path="/features"><Features/></Route>
+          <Route exact path="/productdetail/:id"><ProductDetail/></Route>
+          <Route exact path="/cart"><Cart/></Route>
+          <Route exact path="/compare"><Compare/></Route>
+          <Route exact path="/wishlist"><Wishlist/></Route>
+          {/*<Route exact path="/productdetail/:id"><Productdetail/></Route>*/}
+        </Switch>
+      </ToTop>
     </BrowserRouter>
   );
 }
