@@ -17,13 +17,31 @@ export default function WishTable() {
             })
     }, [process.IP, process.PORT]);
 
+    
+    const handleDelete = (id) => {
+        fetch(`http://${process.IP}:${process.PORT}/wish/${id}`,
+        {
+            method : "DELETE"
+        }).then(
+            alert("삭제되었습니다."),
+            fetch(`http://${process.IP}:${process.PORT}/wish/`)
+            .then(res => {
+                return res.json();
+            })
+            .then(data => {
+                setWishDatas(data);
+                console.log(data);
+            })
+        )
+    }
+
     const wishTableList = wishDatas.map((item, index) => (
         <tr key = {index}>
             <td className="product-thumbnail"><Link to={`/productdetail/${item.id}`}><img className="img-fluid" src= {item.image[0]} alt="" /></Link></td>
             <td className="product-name text-center"><Link to={`/productdetail/${item.id}`}></Link></td>
             <td className="product-price-cart"><span className="amount old">$18.50</span><span className="amount">$15.72</span></td>
             <td className="product-wishlist-cart"><Link to={`/productdetail/${item.id}`}>Select Option</Link></td>
-            <td className="product-remove"><button><i className="fa fa-times"></i></button></td>
+            <td className="product-remove"><button onClick={() => handleDelete(item.id)}><i className="fa fa-times"></i></button></td>
         </tr>
 
     ))
