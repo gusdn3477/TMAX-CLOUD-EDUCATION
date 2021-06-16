@@ -1,3 +1,4 @@
+import { Checkbox } from '@material-ui/core';
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Rating from '../../ui/Rating';
@@ -25,6 +26,39 @@ export default function ProductView({ categoryName }) {
         )
         : newData;
 
+    const handlePutWishList = (id) => {
+
+        fetch(`http://${process.IP}:${process.PORT}/product/${id}`)
+        .then(res => {
+            return res.json();
+        })
+        .then(data => {
+            fetch(`http://${process.IP}:${process.PORT}/wish/`,{
+                method : "POST",
+                headers : {
+                    "Content-type" : "application/json",
+                },
+                body : JSON.stringify({
+                    id : data.id,
+                    name : data.name,
+                    image : data.image,
+                    price : data.price,
+                    discount : data.discount
+                }),
+            })
+        }).then(
+            alert("success")
+        )
+    }
+
+    const handleDelete = (id) => {
+        fetch(`http://${process.IP}:${process.PORT}/wish/${id}`, {
+            method : "DELETE"
+        }).then(
+            alert("삭제되었습니다.")
+        )
+    }
+
     // const searchData = newData.filter(index => (
     //    index.category[0] === categoryName || index.category[1] === categoryName || index.category[2] === categoryName
     // ))
@@ -40,7 +74,7 @@ export default function ProductView({ categoryName }) {
 
                     <div class="product-img-badges">
                         {
-                            item.discount > 0 ? <span class="pink">{item.discount}</span> : ""
+                            item.discount > 0 ? <span class="pink">{item.discount}%</span> : ""
                         }
                         {
                             item.new ? <span className="purple">new</span> : ""
@@ -48,7 +82,8 @@ export default function ProductView({ categoryName }) {
                     </div>
                     <div class="product-action">
                         <div class="pro-same-action pro-wishlist">
-                            <button class="" title="Add to wishlist"><i class="las la-bookmark"></i></button>
+                            <button value={item.id} onClick = {() => handlePutWishList(item.id)} ></button>
+                            {/*<button class="" title="Add to wishlist"><i class="las la-bookmark"></i></button>*/}
                         </div>
                         <div class="pro-same-action pro-cart">
                             <button disabled="" class="active">Out of Stock</button>
