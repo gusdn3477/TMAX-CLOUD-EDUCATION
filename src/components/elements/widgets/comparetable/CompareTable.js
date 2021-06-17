@@ -1,39 +1,76 @@
-import {Link} from 'react-router-dom';
-import React, {useState, useEffect} from 'react';
+import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import Rating from '../../ui/Rating';
 
 export default function CompareTable() {
 
-    const [compareData, setCompareData] = useState([]);
+    const [compareDatas, setCompareDatas] = useState([]);
 
     let process = require('../../../../db/datas.json');
 
     useEffect(() => {
         fetch(`http://${process.IP}:${process.PORT}/compare`)
-        .then(res =>{
-            return res.json();
-        })
-        .then(data => {
-            setCompareData(data);
-        });
-    },[process.IP, process.PORT]);
+            .then(res => {
+                return res.json();
+            })
+            .then(data => {
+                setCompareDatas(data);
+            });
+    }, [process.IP, process.PORT]);
 
     const handleDelete = (id) => {
 
-        fetch(`http://${process.IP}:${process.PORT}/compare/${id}`,{
-            method : "DELETE"
+        fetch(`http://${process.IP}:${process.PORT}/compare/${id}`, {
+            method: "DELETE"
         }).then(
             alert("삭제되었습니다"),
             fetch(`http://${process.IP}:${process.PORT}/compare`).then(res => {
                 return res.json();
             })
-            .then(data => {
-                setCompareData(data);
-                console.log(data);
-            })
+                .then(data => {
+                    setCompareDatas(data);
+                    console.log(data);
+                })
         )
     }
 
+    const comparelist01 = compareDatas.map(item => (
+
+        <td key={item.id} className="product-image-title">
+            <div className="compare-remove">
+                <button onClick={() => handleDelete(item.id)}><i className="las la-trash"></i></button>
+            </div>
+            <Link className="image" to={`/productdetail/${item.id}`}><img className="img-fluid" src={item.image[0]} alt=""></img></Link>
+            <div className="product-title">
+                <Link className="image" to={`/productdetail/${item.id}`}>{item.name}</Link>
+            </div>
+            <div className="compare-btn">
+                <Link className="image" to={`/productdetail/${item.id}`}>Select Option</Link>
+            </div>
+        </td>
+    )).slice(0, 3);
+
+    const comparelist02 = compareDatas.map(item => (
+
+        <td key={item.id} className="product-price">
+            <span className="amount old">{item.price * ((100 + item.discount) / 100).toFixed(2)}</span>
+            <span className="amount">{item.price}</span>
+        </td>
+    )).slice(0, 3);
+
+    const comparelist03 = compareDatas.map(item => (
+        <td className="product-desc">
+            <p>{item.shortDescription}</p>
+        </td>
+    )).slice(0, 3);
+
+    const comparelist04 = compareDatas.map(item => (
+        <td className="product-rating">
+            {item.rating && item.rating > 0 ? (
+                <Rating ratingValue={item.rating} />
+            ) : ( "" )}
+        </td>
+    ))
 
     return (
 
@@ -47,96 +84,20 @@ export default function CompareTable() {
                                     <tbody>
                                         <tr>
                                             <th className="title-column">Product Info</th>
-                                            <td className="product-image-title">
-                                                <div className="compare-remove">
-                                                    <button><i className="las la-trash"></i></button>
-                                                </div>
-                                                <a className="image" href="/product/2"><img className="img-fluid" src="assets/img/product/fashion/2.jpg" alt="" /></a>
-                                                <div className="product-title">
-                                                    <a href="/product/2">Lorem ipsum coat</a>
-                                                </div>
-                                                <div className="compare-btn">
-                                                    <a href="/product/2">Select Option</a>
-                                                </div>
-                                            </td>
-                                            <td className="product-image-title">
-                                                <div className="compare-remove">
-                                                    <button><i className="las la-trash"></i></button>
-                                                </div>
-                                                <a className="image" href="/product/3"><img className="img-fluid" src="assets/img/product/fashion/3.jpg" alt="" /></a>
-                                                <div className="product-title">
-                                                    <a href="/product/3">Lorem ipsum jacket</a>
-                                                </div>
-                                                <div className="compare-btn">
-                                                    <a href="/product/3">Select Option</a>
-                                                </div>
-                                            </td>
-                                            <td className="product-image-title">
-                                                <div className="compare-remove">
-                                                    <button><i className="las la-trash"></i></button>
-                                                </div>
-                                                <a className="image" href="/product/4"><img className="img-fluid" src="assets/img/product/fashion/4.jpg" alt="" /></a>
-                                                <div className="product-title">
-                                                    <a href="/product/4">Lorem ipsum fashion coat</a>
-                                                </div>
-                                                <div className="compare-btn">
-                                                    <a href="/product/4">Select Option</a>
-                                                </div>
-                                            </td>
+                                            {comparelist01}
                                         </tr>
                                         <tr>
                                             <th className="title-column">Price</th>
-                                            <td className="product-price">
-                                                <span className="amount old">$18.50</span>
-                                                <span className="amount">$15.72</span>
-                                            </td>
-                                            <td className="product-price">
-                                                <span className="amount old">$17.45</span>
-                                                <span className="amount">$10.47</span>
-                                            </td>
-                                            <td className="product-price">
-                                                <span className="amount">$15.50</span>
-                                            </td>
+                                            {comparelist02}
                                         </tr>
                                         <tr>
                                             <th className="title-column">Description</th>
-                                            <td className="product-desc">
-                                                <p>
-                                                    Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.
-                                                </p>
-                                            </td>
-                                            <td className="product-desc">
-                                                <p>
-                                                    Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.
-                                                </p>
-                                            </td>
-                                            <td className="product-desc">
-                                                <p>
-                                                    Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.
-                                                </p>
-                                            </td>
+                                            {comparelist03}
                                         </tr>
                                         <tr>
                                             <th className="title-column">Rating</th>
                                             <td className="product-rating">
-                                                <i className="fas fa-star yellow"></i>
-                                                <i className="fas fa-star yellow"></i>
-                                                <i className="fas fa-star yellow"></i>
-                                                <i className="far fa-star"></i>
-                                                <i className="far fa-star"></i>
-                                            </td><td className="product-rating">
-                                                <i className="fas fa-star yellow"></i>
-                                                <i className="fas fa-star yellow"></i>
-                                                <i className="fas fa-star yellow"></i>
-                                                <i className="far fa-star"></i>
-                                                <i className="far fa-star"></i>
-                                            </td>
-                                            <td className="product-rating">
-                                                <i className="fas fa-star yellow"></i>
-                                                <i className="fas fa-star yellow"></i>
-                                                <i className="fas fa-star yellow"></i>
-                                                <i className="far fa-star"></i>
-                                                <i className="far fa-star"></i>
+                                                {comparelist04}
                                             </td>
                                         </tr>
                                     </tbody>

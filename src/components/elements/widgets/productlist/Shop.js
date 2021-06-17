@@ -1,5 +1,18 @@
-export default function Shop() {
+import React, {useState} from "react";
+import ProductView from '../product/ProductView';
 
+export default function Shop({categoryName}) {
+
+    const [sliceNumber, setSliceNumber] = useState(15);
+    const [columnNumber, setColumnNumber] = useState(4);
+    const [onActive, setOnActive] = useState(false);
+
+    const handleLayout = (sln, coln) => {
+        setSliceNumber(sln)
+        setColumnNumber(coln)
+        setOnActive(!onActive)
+    }
+    
     return(
         <div className="col-lg-9 order-1 order-lg-2">
             <div className="shop-top-bar mb-35">

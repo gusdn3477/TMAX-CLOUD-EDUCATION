@@ -2,7 +2,7 @@
   "size": [
     {
       "id": 1,
-      "name": "5"
+      "name": "S"
     },
     {
       "id": 2,
@@ -23,9 +23,52 @@
   ],
   "compare": [
     {
-      "id": 1
+      "id": "4",
+      "name": "Lorem ipsum fashion coat",
+      "image": [
+        "/assets/img/product/fashion/4.jpg",
+        "/assets/img/product/fashion/2.jpg",
+        "/assets/img/product/fashion/5.jpg",
+        "/assets/img/product/fashion/7.jpg",
+        "/assets/img/product/fashion/9.jpg"
+      ],
+      "price": 15.5,
+      "discount": 0,
+      "shortDescription": "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.",
+      "rating": 4
+    },
+    {
+      "id": "2",
+      "name": "Lorem ipsum coat",
+      "image": [
+        "/assets/img/product/fashion/2.jpg",
+        "/assets/img/product/fashion/4.jpg",
+        "/assets/img/product/fashion/5.jpg",
+        "/assets/img/product/fashion/7.jpg",
+        "/assets/img/product/fashion/9.jpg"
+      ],
+      "price": 18.5,
+      "discount": 15,
+      "shortDescription": "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.",
+      "rating": 3
+    },
+    {
+      "id": "8",
+      "name": "Lorem ipsum fashion jacket",
+      "image": [
+        "/assets/img/product/fashion/8.jpg",
+        "/assets/img/product/fashion/6.jpg",
+        "/assets/img/product/fashion/3.jpg",
+        "/assets/img/product/fashion/1.jpg",
+        "/assets/img/product/fashion/9.jpg"
+      ],
+      "price": 29.85,
+      "discount": 10,
+      "shortDescription": "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.",
+      "rating": 5
     }
   ],
+
   "cart": [],
   "wish": [
     {
