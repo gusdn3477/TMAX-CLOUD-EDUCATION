@@ -2,7 +2,7 @@ import React from 'react';
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import Home from './components/pages/home/Home';
 import Features from './components/pages/Features/Features';
-import ProductDetail from './components/elements/pages/ProductDetail/ProductDetail';
+import ProductDetail from './components/pages/ProductDetail/ProductDetail';
 import Cart from './components/pages/cart/Cart';
 import Compare from './components/pages/compare/Compare';
 import Wishlist from './components/pages/wishlist/Wishlist';

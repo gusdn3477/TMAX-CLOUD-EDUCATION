@@ -1,16 +1,16 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import Header from '../../../layout/Header';
-import Footer from '../../../layout/Footer';
-import Bread from '../../../elements/ui/Bread';
-import ProductTop from '../../widgets/product/productTop/ProductTop';
+import Header from '../../layout/Header';
+import Footer from '../../layout/Footer';
+import Bread from '../../elements/ui/Bread';
+import ProductTop from '../../elements/widgets/product/productTop/ProductTop';
 
 export default function ProductDetail(){
 
     const {id} = useParams();
     const [ productData, setProductData] = useState([]);
 
-    let process = require('../../../../db/myProcess.json');
+    let process = require('../../../db/myProcess.json');
 
     useEffect(() =>{
         fetch(`http://${process.IP}:${process.PORT}/product/${id}`)
