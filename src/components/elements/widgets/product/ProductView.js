@@ -1,9 +1,8 @@
-import { Checkbox } from '@material-ui/core';
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Rating from '../../ui/Rating';
 
-export default function ProductView({ categoryName }) {
+export default function ProductView({ categoryName, sliceNumber, columnNumber }) {
 
     let process = require('../../../../db/myProcess.json');
 
@@ -50,6 +49,7 @@ export default function ProductView({ categoryName }) {
                 body : JSON.stringify({
                     id : data.id,
                     name : data.name,
+                    image : data.image,
                     price : data.price,
                     discount : data.discount,
                     shortDescription : data.shortDescription,
@@ -78,7 +78,8 @@ export default function ProductView({ categoryName }) {
                     id : data.id,
                     name : data.name,
                     image : data.image,
-                    price : data.price
+                    price : data.price,
+                    discount : data.discount
                 }),
             })
         }).then(
@@ -86,9 +87,6 @@ export default function ProductView({ categoryName }) {
         )
     }
 
-    // const searchData = newData.filter(index => (
-    //    index.category[0] === categoryName || index.category[1] === categoryName || index.category[2] === categoryName
-    // ))
     const productList = searchData.map(item => (
 
         <div class="col-xl-4 col-sm-6" key={item.id}>

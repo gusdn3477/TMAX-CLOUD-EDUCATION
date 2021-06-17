@@ -1,10 +1,35 @@
 import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
 
-export default function CartListView({ data }) {
+export default function CartListView({ data, setCartDatas }) {
+
+    let process = require('../../../db/myProcess.json');
 
     const [count, setCount] = useState(1);
+    
+    const handleCountAdd = () => {
+        setCount(count+1);
+    }
 
+    const handleCountDec = () => {
+        count > 1 ? setCount(count-1) : alert("최수 수량은 1개 이상입니다.");
+    }
+
+    const handleDelete = (id) => {
+
+        fetch(`http://${process.IP}:${process.PORT}`, {
+            method : "DELETE"
+        }).then(
+            alert("삭제 되었습니다."),
+            fetch(`http://${process.IP}:${process.PORT}/cart`)
+            .then(res => {
+                return res.json();
+            })
+            .then(data =>{
+                setCartDatas(data);
+            })
+        )
+    }
 
     return (
         <tr>
@@ -24,12 +49,12 @@ export default function CartListView({ data }) {
             </td>
             <td class="product-quantity">
                 <div class="cart-plus-minus">
-                    <button class="dec qtybutton">-</button>
+                    <button class="dec qtybutton" onClick={()=>handleCountDec()}>-</button>
                     <input class="cart-plus-minus-box" type="text" readonly="" value="1" />
-                    <button class="inc qtybutton">+</button>
+                    <button class="inc qtybutton" onClick={()=>handleCountAdd()}>+</button>
                 </div>
             </td>
             <td class="product-subtotal">{data.price * count}</td>
-            <td class="product-remove"><button><i class="fa fa-times"></i></button></td>
+            <td class="product-remove"><button onClick={()=>handleDelete(data.id)}><i class="fa fa-times"></i></button></td>
         </tr>);
 }
