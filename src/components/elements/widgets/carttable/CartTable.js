@@ -14,9 +14,8 @@ export default function CartTable() {
             })
             .then(data => {
                 setCartDatas(data);
-            }
-            )
-    })
+            });
+    }, [process.IP, process.PORT]);
 
     return (
         <div class="table-content table-responsive cart-table-content">

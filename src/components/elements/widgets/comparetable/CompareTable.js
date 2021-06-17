@@ -1,5 +1,6 @@
 import {Link} from 'react-router-dom';
 import React, {useState, useEffect} from 'react';
+import Rating from '../../ui/Rating';
 
 export default function CompareTable() {
 
@@ -16,6 +17,22 @@ export default function CompareTable() {
             setCompareData(data);
         });
     },[process.IP, process.PORT]);
+
+    const handleDelete = (id) => {
+
+        fetch(`http://${process.IP}:${process.PORT}/compare/${id}`,{
+            method : "DELETE"
+        }).then(
+            alert("삭제되었습니다"),
+            fetch(`http://${process.IP}:${process.PORT}/compare`).then(res => {
+                return res.json();
+            })
+            .then(data => {
+                setCompareData(data);
+                console.log(data);
+            })
+        )
+    }
 
 
     return (
