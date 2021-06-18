@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import BlogData from '../db/blog.json';
+import BlogData from '../src/db/blog.json';
 
 export default function Content() {
 

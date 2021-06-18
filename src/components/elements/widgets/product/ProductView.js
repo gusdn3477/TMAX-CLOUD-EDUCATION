@@ -89,7 +89,7 @@ export default function ProductView({ categoryName, sliceNumber, columnNumber })
 
     const productList = searchData.map(item => (
 
-        <div class="col-xl-4 col-sm-6" key={item.id}>
+        <div class={`col-xl-${columnNumber} col-md-6 col-lg-${columnNumber} col-sm-6`} key={item.id}>
             <div class="product-wrap mb-25">
                 <div class="product-img">
                     <Link to={`/productdetail/${item.id}`}>

@@ -5,7 +5,7 @@ export default function CartListView({ data, setCartDatas }) {
 
     let process = require('../../../db/myProcess.json');
 
-    const [count, setCount] = useState(1);
+    const [count, setCount] = useState(data.qty);
     
     const handleCountAdd = () => {
         setCount(count+1);

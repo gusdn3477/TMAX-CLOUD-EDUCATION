@@ -1,17 +1,17 @@
+import { Fragment } from "react";
 import Header from '../../layout/Header';
 import Footer from '../../layout/Footer';
 import Bread from '../../elements/ui/Bread';
-import CartTable from '../../elements/widgets/carttable/CartTable';
-import React, { Fragment } from 'react';
+import MyAccountForm from './MyAccountForm';
 
-export default function Cart() {
+export default function MyAccount() {
 
     return (
         <Fragment>
             <Header />
-            <Bread productName="Cart" />
-            <CartTable/>
+            <Bread productName="My Account" />
+            <MyAccountForm/>
             <Footer />
         </Fragment>
-    )
+    );
 }
