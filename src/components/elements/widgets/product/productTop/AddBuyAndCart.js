@@ -7,13 +7,24 @@ export default function AddBuyAndCart({data, color, size}){
     let process = require('../../../../../db/myProcess.json');
 
     const [count, setCount] = useState(1);
+    const [sideMenuCartDatas, setSideMenuCartDatas] = useState([]);
+
+    useEffect(()=>{
+        fetch(`http://${process.IP}:${process.PORT}/sidemenu/5`)
+        .then(res => {
+            return res.json()
+        })
+        .then(data => {
+            setSideMenuCartDatas(data);
+            console.log(data);
+        });
+    }, [process.IP, process.PORT]);
 
     const handleCountAdd = () => {
         setCount(count + 1);
     }
 
     const handleCountDec = () => {
-
         count > 1 ? setCount(count-1) : alert("최소 수량은 1개입니다.");
     }
 
@@ -72,7 +83,20 @@ export default function AddBuyAndCart({data, color, size}){
                 color : color,
                 size : size
             })
-        }).then(alert("success"))
+        })
+        .then(alert("success"),
+        fetch(`http://${process.IP}:${process.PORT}/sidemenu/5`),{
+            method: "PUT",
+            headers : {
+                "Content-Type" : "application/json",
+            },
+            body : JSON.stringify({
+                id : sideMenuCartDatas.id,
+                name : sideMenuCartDatas.name,
+                url : sideMenuCartDatas.url,
+                count : sideMenuCartDatas.count + 1
+            })
+        })
     }
 
     return(
@@ -83,7 +107,7 @@ export default function AddBuyAndCart({data, color, size}){
                 <button className="inc qtybutton" onClick={() => handleCountAdd()}>+</button>
             </div>
             <div className="pro-details-cart btn-hover">
-                <button> Add To Cart </button>
+                <button onClick={()=>handlePutCartList()}> Add To Cart </button>
             </div>
             
             <div className="pro-details-cart btn-hover ml-0"> 

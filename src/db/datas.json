@@ -68,34 +68,8 @@
       "rating": 5
     }
   ],
-
   "cart": [],
   "wish": [
-    {
-      "id": "7",
-      "name": "Lorem ipsum fashion female coat",
-      "image": [
-        "/assets/img/product/fashion/7.jpg",
-        "/assets/img/product/fashion/5.jpg",
-        "/assets/img/product/fashion/2.jpg",
-        "/assets/img/product/fashion/4.jpg",
-        "/assets/img/product/fashion/9.jpg"
-      ],
-      "price": 55.5,
-      "discount": 40
-    },
-    {
-      "id": "2",
-      "name": "Lorem ipsum coat",
-      "image": [
-        "/assets/img/product/fashion/2.jpg",
-        "/assets/img/product/fashion/4.jpg",
-        "/assets/img/product/fashion/5.jpg",
-        "/assets/img/product/fashion/7.jpg",
-        "/assets/img/product/fashion/9.jpg"
-      ],
-      "price": 18.5
-    },
     {
       "id": "3",
       "name": "Lorem ipsum jacket",

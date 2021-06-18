@@ -27,14 +27,19 @@ export default function Shop({categoryName}) {
                     <p>Showing 15 of 144 result</p>
                 </div>
                 <div className="shop-tab">
-                    <button className=""><i className="fa fa-th-large"></i></button>
-                    <button className="active"><i className="fa fa-th"></i></button>
-                    <button className=""><i className="fa fa-list-ul"></i></button>
+                    <button className={onActive ? "active" : ""} onClick={()=> onActive ? "" : handleLayout(10,6)}><i className="fa fa-th-large"></i></button>
+                    <button className={onActive ? "" : "active"} onClick={()=> onActive ? handleLayout(15,4) : ""}><i className="fa fa-th"></i></button>
+                    {/*<button className=""><i className="fa fa-list-ul"></i></button>*/}
                 </div>
             </div>
             <div className="shop-bottom-area mt-35">
                 <div className="row grid three-column">
-
+                    <p>{categoryName}</p>
+                    <ProductView
+                        sliceNumber = {sliceNumber}
+                        columnNumber = {columnNumber}
+                        categoryName = {categoryName}
+                    />
                 </div>
             </div>   
             <div className="pro-pagination-style text-center mt-30">

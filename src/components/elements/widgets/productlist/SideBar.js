@@ -1,5 +1,29 @@
+import React, {useState, useEffect} from "react";
+import SideCategoryList from './SideCategoryList';
 
-export default function SideBar() {
+export default function SideBar({setCategoryName}) {
+
+    const [categoryList, setCategoryList] = useState([]);
+
+    let process = require('../../../../db/myProcess.json');
+
+    useEffect(() => {
+        fetch(`http://${process.IP}:${process.PORT}/category`)
+        .then(res => {
+            return res.json();
+        })
+        .then(data => {
+            setCategoryList(data);
+        });
+    }, [process.IP, process.PORT]);
+
+    const categoryLi = categoryList.map(item => (
+        <SideCategoryList
+            key={item.id}
+            data={item}
+            setCategoryName = {setCategoryName}
+        />
+    ))
 
     return(
         <div className="col-lg-3 order-2 order-lg-1">
@@ -17,106 +41,7 @@ export default function SideBar() {
                     <h4 className="pro-sidebar-title">Categories </h4>
                     <div className="sidebar-widget-list mt-30">
                         <ul>
-                            <li>
-                                <div className="sidebar-widget-list-left">
-                                    <button><span className="checkmark"></span> All Categories</button>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="sidebar-widget-list-left">
-                                    <button><span className="checkmark"></span> fashion </button>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="sidebar-widget-list-left">
-                                    <button><span className="checkmark"></span> men </button>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="sidebar-widget-list-left">
-                                    <button><span className="checkmark"></span> women </button>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="sidebar-widget-list-left">
-                                    <button> <span className="checkmark"></span> electronics </button>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="sidebar-widget-list-left">
-                                    <button> <span className="checkmark"></span> furniture </button>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="sidebar-widget-list-left">
-                                    <button> <span className="checkmark"></span> plant </button>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="sidebar-widget-list-left">
-                                    <button> <span className="checkmark"></span> organic food </button>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="sidebar-widget-list-left">
-                                    <button> <span className="checkmark"></span> flower </button>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="sidebar-widget-list-left">
-                                    <button> <span className="checkmark"></span> book </button>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="sidebar-widget-list-left">
-                                    <button> <span className="checkmark"></span> cosmetics </button>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="sidebar-widget-list-left">
-                                    <button> <span className="checkmark"></span> accessories </button>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="sidebar-widget-list-left">
-                                    <button> <span className="checkmark"></span> handmade </button>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="sidebar-widget-list-left">
-                                    <button> <span className="checkmark"></span> kids </button>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="sidebar-widget-list-left">
-                                    <button> <span className="checkmark"></span> auto parts </button>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="sidebar-widget-list-left">
-                                    <button> <span className="checkmark"></span> cakes </button>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="sidebar-widget-list-left">
-                                    <button> <span className="checkmark"></span> pet food </button>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="sidebar-widget-list-left">
-                                    <button> <span className="checkmark"></span> medical </button>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="sidebar-widget-list-left">
-                                    <button> <span className="checkmark"></span> black friday </button>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="sidebar-widget-list-left">
-                                    <button> <span className="checkmark"></span> christmas </button>
-                                </div>
-                            </li>
+                            {categoryLi}
                         </ul>
                     </div>
                 </div>
