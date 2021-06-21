@@ -16,7 +16,7 @@ export default function ColorAndSize({ vData, setColor, setSize }) {
                 <div className="pro-details-color-content">
                     {
                         vData ? vData.map((item, index) => (
-                            <label className={`pro-details-color-content--single ${item.color}`}>
+                            <label key={index} className={`pro-details-color-content--single ${item.color}`}>
                                 <input type="radio" name="product-color" value="blue" checked="" />
                                 <span className="checkmark"></span>
                             </label>

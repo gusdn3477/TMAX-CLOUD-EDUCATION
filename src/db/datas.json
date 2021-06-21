@@ -1,14 +1,22 @@
 {
-  "users" : [
+  "users": [
     {
-      "id" : 1,
-      "userId" : "",
-      "pass" : "",
-      "emial" : "",
-      "phone" : ""
+      "id": 1,
+      "userId": "aaa",
+      "password": "111",
+      "name": "bbb",
+      "email": "ccc",
+      "phone": "01000000"
+    },
+    {
+      "id": 2,
+      "userId": "abcd1234",
+      "password": "aaaa",
+      "name": "안영진",
+      "email": "beat1103@gmail.com",
+      "phone": "01052917902"
     }
   ],
-
   "size": [
     {
       "id": 1,
@@ -78,8 +86,23 @@
       "rating": 5
     }
   ],
-  "cart": [],
-  "wish": [
+  "cart": [
+    {
+      "id": "1",
+      "name": "Lorem ipsum jacket",
+      "image": [
+        "/assets/img/product/fashion/1.jpg",
+        "/assets/img/product/fashion/3.jpg",
+        "/assets/img/product/fashion/6.jpg",
+        "/assets/img/product/fashion/8.jpg",
+        "/assets/img/product/fashion/9.jpg"
+      ],
+      "price": 12.45,
+      "discount": 10,
+      "qty": 1,
+      "color": "",
+      "size": ""
+    },
     {
       "id": "3",
       "name": "Lorem ipsum jacket",
@@ -90,7 +113,128 @@
         "/assets/img/product/fashion/8.jpg",
         "/assets/img/product/fashion/9.jpg"
       ],
-      "price": 17.45
+      "price": 17.45,
+      "discount": 40,
+      "qty": 1,
+      "size": ""
+    },
+    {
+      "id": "6",
+      "name": "Lorem ipsum jacket",
+      "image": [
+        "/assets/img/product/fashion/6.jpg",
+        "/assets/img/product/fashion/3.jpg",
+        "/assets/img/product/fashion/1.jpg",
+        "/assets/img/product/fashion/8.jpg",
+        "/assets/img/product/fashion/9.jpg"
+      ],
+      "price": 19.85,
+      "discount": 0,
+      "qty": 1,
+      "size": ""
+    }
+  ],
+  "wish": [
+    {
+      "id": "2",
+      "name": "Lorem ipsum coat",
+      "image": [
+        "/assets/img/product/fashion/2.jpg",
+        "/assets/img/product/fashion/4.jpg",
+        "/assets/img/product/fashion/5.jpg",
+        "/assets/img/product/fashion/7.jpg",
+        "/assets/img/product/fashion/9.jpg"
+      ],
+      "price": 18.5,
+      "discount": 15
+    },
+    {
+      "id": "3",
+      "name": "Lorem ipsum jacket",
+      "image": [
+        "/assets/img/product/fashion/3.jpg",
+        "/assets/img/product/fashion/1.jpg",
+        "/assets/img/product/fashion/6.jpg",
+        "/assets/img/product/fashion/8.jpg",
+        "/assets/img/product/fashion/9.jpg"
+      ],
+      "price": 17.45,
+      "discount": 40
+    },
+    {
+      "id": "4",
+      "name": "Lorem ipsum fashion coat",
+      "image": [
+        "/assets/img/product/fashion/4.jpg",
+        "/assets/img/product/fashion/2.jpg",
+        "/assets/img/product/fashion/5.jpg",
+        "/assets/img/product/fashion/7.jpg",
+        "/assets/img/product/fashion/9.jpg"
+      ],
+      "price": 15.5,
+      "discount": 0
+    },
+    {
+      "id": "7",
+      "name": "Lorem ipsum fashion female coat",
+      "image": [
+        "/assets/img/product/fashion/7.jpg",
+        "/assets/img/product/fashion/5.jpg",
+        "/assets/img/product/fashion/2.jpg",
+        "/assets/img/product/fashion/4.jpg",
+        "/assets/img/product/fashion/9.jpg"
+      ],
+      "price": 55.5,
+      "discount": 40
+    },
+    {
+      "id": "1",
+      "name": "Lorem ipsum jacket",
+      "image": [
+        "/assets/img/product/fashion/1.jpg",
+        "/assets/img/product/fashion/3.jpg",
+        "/assets/img/product/fashion/6.jpg",
+        "/assets/img/product/fashion/8.jpg",
+        "/assets/img/product/fashion/9.jpg"
+      ],
+      "price": 12.45,
+      "discount": 10
+    }
+  ],
+  "blog": [
+    {
+      "id": 1,
+      "image": "/assets/img/blog/01.jpg",
+      "category": [
+        "lifestyle",
+        "men"
+      ],
+      "title": "A guide to latest trends",
+      "url": "/blog-details-standard",
+      "author": "TheUNIONGraphix",
+      "authorUrl": "/blog-standard"
+    },
+    {
+      "id": 2,
+      "image": "/assets/img/blog/02.jpg",
+      "category": [
+        "lifestyle"
+      ],
+      "title": "Five ways to lead a happy life",
+      "url": "/blog-details-standard",
+      "author": "React",
+      "authorUrl": "/blog-standard"
+    },
+    {
+      "id": 3,
+      "image": "/assets/img/blog/03.jpg",
+      "category": [
+        "lifestyle"
+      ],
+      "title": "Tips on having a happy life",
+      "url": "/blog-details-standard",
+      "author": "Html5",
+      "authorUrl": "/blog-standard"
     }
   ],
   "menu": [
@@ -123,8 +267,8 @@
     },
     {
       "id": 3,
-      "name": "Pricing",
-      "url": "/pricing"
+      "name": "SHOP",
+      "url": "/productlist"
     },
     {
       "id": 4,
@@ -140,36 +284,40 @@
   "sidemenu": [
     {
       "id": 1,
-      "name": "fas fa-search",
-      "url": "/search",
-      "count": 3
+      "name": "las la-search",
+      "url": "search",
+      "count": 0
     },
     {
       "id": 2,
-      "name": "fas fa-user",
-      "url": "/user",
-      "count": 2
+      "name": "las la-user-circle",
+      "url": "/myaccount",
+      "count": 0
     },
     {
       "id": 3,
-      "name": "fas fa-random",
+      "name": "las la-random",
       "url": "/compare",
-      "count": 1
+      "count": 0
     },
     {
       "id": 4,
-      "name": "far fa-heart",
+      "name": "las la-bookmark",
       "url": "/wishlist",
-      "count": 5
+      "count": 0
     },
     {
       "id": 5,
-      "name": "fas fa-shopping-bag",
+      "name": "las la-shopping-bag",
       "url": "/cart",
-      "count": 3
+      "count": 4
     }
   ],
   "category": [
+    {
+      "id": 0,
+      "name": "AllCategories"
+    },
     {
       "id": 1,
       "name": "fashion"
@@ -184,7 +332,31 @@
     },
     {
       "id": 4,
-      "name": "boy"
+      "name": "electronics"
+    },
+    {
+      "id": 5,
+      "name": "plant"
+    },
+    {
+      "id": 6,
+      "name": "organic food"
+    },
+    {
+      "id": 7,
+      "name": "flower"
+    },
+    {
+      "id": 8,
+      "name": "book"
+    },
+    {
+      "id": 9,
+      "name": "cosmetics"
+    },
+    {
+      "id": 10,
+      "name": "accessories"
     }
   ],
   "brand": [
@@ -4910,42 +5082,6 @@
       ],
       "shortDescription": "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.",
       "fullDescription": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
-    }
-  ],
-  "blog": [
-    {
-      "id": 1,
-      "image": "/assets/img/blog/01.jpg",
-      "category": [
-        "lifestyle",
-        "men"
-      ],
-      "title": "A guide to latest trends",
-      "url": "/blog-details-standard",
-      "author": "TheUNIONGraphix",
-      "authorUrl": "/blog-standard"
-    },
-    {
-      "id": 2,
-      "image": "/assets/img/blog/02.jpg",
-      "category": [
-        "lifestyle"
-      ],
-      "title": "Five ways to lead a happy life",
-      "url": "/blog-details-standard",
-      "author": "React",
-      "authorUrl": "/blog-standard"
-    },
-    {
-      "id": 3,
-      "image": "/assets/img/blog/03.jpg",
-      "category": [
-        "lifestyle"
-      ],
-      "title": "Tips on having a happy life",
-      "url": "/blog-details-standard",
-      "author": "Html5",
-      "authorUrl": "/blog-standard"
     }
   ]
 }

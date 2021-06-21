@@ -1,10 +1,21 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import UseFetch from '../../../hooks/UseFetch';
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
 
 export default function SignUp() {
 
-    return (
+    const useStyles = makeStyles((theme) => ({
+        root: {
+            '& > *': {
+                margin: theme.spacing(1),
+                width: '25ch',
+            },
+        },
+    }));
 
+    return (
+        
         <div className="card-body">
             <div className="myaccount-info-wrapper">
                 <div className="account-info-wrapper">

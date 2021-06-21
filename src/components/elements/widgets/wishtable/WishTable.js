@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import {useHistory} from "react-router";
 import {Link} from 'react-router-dom';
 
 export default function WishTable() {
 
+    const history = useHistory();
+    
     const [wishDatas, setWishDatas] = useState([]);
     let process = require('../../../../db/myProcess.json');
 

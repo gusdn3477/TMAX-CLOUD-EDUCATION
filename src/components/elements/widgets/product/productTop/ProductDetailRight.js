@@ -29,7 +29,7 @@ export default function ProductDetailRight({productData}){
                 rating = {datas.rating}
                 txt = {datas.shortDescription}/>
                 <ProDetRgtMiddle />
-                <ProDetRgtBottom />
+                {/*<ProDetRgtBottom /> */}
             </div>
         </div>
     )

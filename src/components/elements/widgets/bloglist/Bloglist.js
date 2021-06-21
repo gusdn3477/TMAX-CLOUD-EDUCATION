@@ -1,10 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
-import BlogData from '../../../../db/blog.json';
 
 export default function Bloglist(){
 
-    const [newBlogData , setNewBlogData] = useState(BlogData);
+    const [newBlogData , setNewBlogData] = useState([]);
 
     useEffect(() => {
         fetch('http://localhost:3001/blog')
